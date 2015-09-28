@@ -8,6 +8,7 @@
   <title>angular rooms</title>
 </head>
 <body ng-controller="mainCtrl">
+
   <div>
     <input type="text" ng-model="roomName" placeholder="room name">
     <button ng-click="addRoom(roomName)">Add Room</button>
@@ -26,9 +27,13 @@
       <option ng-repeat="room in rooms" value="{{room.name}}">{{room.name}}</option>
     </select>
     <button ng-click="displayDetails(selectedRoom2)">display details</button>
+  </div>
   <div ui-view>
 
+
+
   </div>
+
 
   </body>
   </html>

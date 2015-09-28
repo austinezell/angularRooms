@@ -2,6 +2,10 @@ app = angular.module('rooms', ['ui.router'])
 .config(function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise('home');
   $stateProvider
+  .state('home', {
+    url: 'home',
+    templateUrl : './views/home.html',
+  })
   .state('room', {
     url: '/room',
     templateUrl : './views/furniture.html',
@@ -18,10 +22,8 @@ app = angular.module('rooms', ['ui.router'])
   $scope.addFurniture = function(type, quantity, price, roomName){
     var obj = {type: type, quantity: quantity, price: price};
     var currentRoom = $scope.findRoom(roomName);
-    // console.log(currentRoom);
     currentRoom.furniture.push(obj);
     currentRoom.totalCost += quantity*price
-    // console.log(currentRoom.totalCost);
   }
 
   $scope.findRoom = function(roomName){
@@ -32,10 +34,10 @@ app = angular.module('rooms', ['ui.router'])
     })
     return thisRoom;
   }
-  console.log($scope.selectedRoom2);
 
   $scope.displayDetails = function(){
     $scope.currentRoom = $scope.findRoom($scope.selectedRoom2)
+    $scope.furniture = $scope.currentRoom.furniture;
     $scope.totalCost = $scope.currentRoom.totalCost;
     $state.go('room');
   }

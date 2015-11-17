@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="rooms">
+<head>
+  <meta charset="UTF-8">
+  <title>angular rooms</title>
+</head>
+<body ng-controller="mainCtrl">
+
+  <div>
+    <input type="text" ng-model="roomName" placeholder="room name">
+    <button ng-click="addRoom(roomName)">Add Room</button>
+  </div>
+  <div>
+    <input type="text" placeholder="type" ng-model='type'/>
+    <input type="number" placeholder="quantity" ng-model="quantity">
+    <input type="number" placeholder='price' ng-model="price">
+    <select ng-model="selectedRoom1" name="roomNames" id="roomNames">
+      <option ng-repeat="room in rooms">{{room.name}}</option>
+    </select>
+    <button ng-click="addFurniture(type, quantity, price, selectedRoom1)">Add furniture</button>
+  </div>
+  <div>
+    <select ng-model="selectedRoom2" name="roomNames" id="roomNames">
+      <option ng-repeat="room in rooms" value="{{room.name}}">{{room.name}}</option>
+    </select>
+    <button ng-click="displayDetails(selectedRoom2)">display details</button>
+  </div>
+  <div ui-view>
+
+
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js" charset="utf-8"></script>
+  <script src="main.js" charset="utf-8"></script>
+  
+
+</body>
+</html>

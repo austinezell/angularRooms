@@ -1,0 +1,37 @@
+<h4>Total Cost:</h4 ng-controller="mainCtrl">
+  {{totalCost}}
+
+  <div>
+    <table>
+      <tr>
+        <td>
+          type
+        </td>
+        <td>
+          quantity
+        </td>
+        <td>
+          individual price
+        </td>
+        <td>
+          total cost
+        </td>
+      </tr>
+      <tr ng-repeat="item in furniture">
+        {{item}}
+        <td>
+          {{item.type}}
+        </td>
+        <td>
+          {{item.quantity}}
+        </td>
+        <td>
+          {{item.price}}
+        </td>
+        <td>
+          {{item.price * item.quantity}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
